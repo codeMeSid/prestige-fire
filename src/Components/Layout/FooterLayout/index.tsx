@@ -1,11 +1,16 @@
-import { Facebook, Instagram, X } from "@mui/icons-material";
 import { Box, Button, Grid2, TextField, Typography } from "@mui/material";
+import { siteMetaData } from "@sid/src/utils/metadata";
 
 const FooterLayout = () => {
   return (
     <Box
       component="footer"
-      sx={{ bgcolor: "#1E1A17", color: "white", py: 6, px: 4 }}
+      sx={{
+        bgcolor: siteMetaData.GlobalLayout.footerBgColor,
+        color: "white",
+        py: 6,
+        px: 4,
+      }}
     >
       <Grid2
         container
@@ -19,7 +24,7 @@ const FooterLayout = () => {
           flexWrap: "wrap",
         }}
       >
-        {/* Support Section */}
+        {/* Support Section 1 */}
         <Grid2
           size={{ xs: 12, md: 4 }}
           sx={{
@@ -30,10 +35,10 @@ const FooterLayout = () => {
           }}
         >
           <Typography variant="h6" fontWeight="bold">
-            Support
+            {siteMetaData.GlobalLayout.footerSection1.title}
           </Typography>
           <Typography variant="body2">
-            Expert gas stove repair in Bangalore and Hyderabad.
+            {siteMetaData.GlobalLayout.footerSection1.content}
           </Typography>
           <Box
             sx={{
@@ -43,13 +48,17 @@ const FooterLayout = () => {
               mt: 1,
             }}
           >
-            <Facebook fontSize="large" />
-            <Instagram fontSize="large" />
-            <X fontSize="large" />
+            {siteMetaData.GlobalLayout.footerSection1.links.map((link) => {
+              return (
+                <Box component="a" key={link.href} href={link.href}>
+                  <link.icon fontSize="large" />
+                </Box>
+              );
+            })}
           </Box>
         </Grid2>
 
-        {/* Brands Section */}
+        {/* Brands Section 2*/}
         <Grid2
           size={{ xs: 12, md: 4 }}
           sx={{
@@ -60,20 +69,22 @@ const FooterLayout = () => {
           }}
         >
           <Typography variant="h6" fontWeight="bold">
-            BRANDS
+            {siteMetaData.GlobalLayout.footerSection2.title}
           </Typography>
           <Typography variant="body2">
             <a
               href="mailto:gasstovecare@gmail.com"
               style={{ color: "white", textDecoration: "underline" }}
             >
-              gasstovecare@gmail.com
+              {siteMetaData.GlobalLayout.footerSection2.content1}
             </a>
           </Typography>
-          <Typography variant="body2">18001235871</Typography>
+          <Typography variant="body2">
+            {siteMetaData.GlobalLayout.contactBannerText}
+          </Typography>
         </Grid2>
 
-        {/* Contact Section */}
+        {/* Contact Section 3*/}
         <Grid2
           size={{ xs: 12, md: 4 }}
           sx={{
@@ -84,7 +95,7 @@ const FooterLayout = () => {
           }}
         >
           <Typography variant="h6" fontWeight="bold">
-            CONTACT
+            {siteMetaData.GlobalLayout.footerSection3.title}
           </Typography>
           <Typography variant="body2">Enter your email address</Typography>
           <TextField
@@ -114,7 +125,9 @@ const FooterLayout = () => {
 
       {/* Copyright */}
       <Box sx={{ textAlign: "center", mt: 6 }}>
-        <Typography variant="body2">© 2024. All rights reserved.</Typography>
+        <Typography variant="body2">
+          {siteMetaData.GlobalLayout.footerRightsText}
+        </Typography>
       </Box>
     </Box>
   );

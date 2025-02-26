@@ -1,4 +1,5 @@
 import { Box, Button, Container, Typography } from "@mui/material";
+import { siteMetaData } from "@sid/src/utils/metadata";
 import React from "react";
 
 const Section1 = () => {
@@ -7,7 +8,7 @@ const Section1 = () => {
       sx={{
         position: "relative",
         width: "100%",
-        height: { xs: "100vh", md: "80vh" }, // Adjust height based on screen size
+        height: { xs: "100vh", md: "80vh" },
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -17,7 +18,6 @@ const Section1 = () => {
         flexDirection: "column",
       }}
     >
-      {/* Background Image */}
       <Box
         sx={{
           position: "absolute",
@@ -26,8 +26,7 @@ const Section1 = () => {
           width: "100%",
           height: "100%",
           zIndex: -1,
-          backgroundImage:
-            'url("https://images.unsplash.com/photo-1608454770647-01dc0f7dd97d?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")', // Replace with actual image
+          backgroundImage: `url(${siteMetaData.HomePage.parallaxImageSrc})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed", // Parallax effect
@@ -38,12 +37,11 @@ const Section1 = () => {
       {/* Main Heading & Call to Action */}
       <Container maxWidth="md">
         <Typography variant="h3" fontWeight="bold">
-          Expert Gas Stove Repair Services
+          {siteMetaData.HomePage.parallaxImageTitle1}
         </Typography>
         <Typography variant="body1" sx={{ mt: 2 }}>
-          Reliable repairs for Elica, Faber, Glen, and more.
+          {siteMetaData.HomePage.parallaxImageTitle2}
         </Typography>
-
         <Button
           variant="contained"
           sx={{
@@ -57,7 +55,7 @@ const Section1 = () => {
             "&:hover": { backgroundColor: "#e69500" },
           }}
         >
-          Call Now - 18001235871
+          Call Now - {siteMetaData.GlobalLayout.contactBannerText}
         </Button>
       </Container>
 
@@ -74,17 +72,7 @@ const Section1 = () => {
           px: { xs: 2, md: 5 },
         }}
       >
-        {[
-          {
-            title: "Burner Repair",
-            desc: "Quick and efficient burner repair services available.",
-          },
-          { title: "Brand Expertise", desc: "Gas Leak Fixes" },
-          {
-            title: "Trusted Brands",
-            desc: "Professional solutions for all gas leak issues.",
-          },
-        ].map((item, index) => (
+        {siteMetaData.HomePage.parallaxSections.map((item, index) => (
           <Box
             key={index}
             sx={{
@@ -101,7 +89,7 @@ const Section1 = () => {
             <Typography variant="h6" fontWeight="bold">
               {item.title}
             </Typography>
-            <Typography variant="body2">{item.desc}</Typography>
+            <Typography variant="body2">{item.description}</Typography>
           </Box>
         ))}
       </Box>

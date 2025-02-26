@@ -1,34 +1,44 @@
+"use client";
 import { Box, Button, Typography } from "@mui/material";
-import Image from "next/image";
-import React from "react";
+import { siteBrands, siteMetaData } from "@sid/src/utils/metadata";
+import { useParams } from "next/navigation";
+import CustomImage from "../../CustomImage";
 
 const Section1 = () => {
+  const { serviceId } = useParams();
   return (
     <Box sx={{ textAlign: "center" }}>
       {/* Logo */}
-      <Box sx={{ py: 3 }}>
-        <Image
-          src="/images/faber-logo.png"
-          alt="Faber Logo"
-          width={150}
-          height={50}
-        />
+      <Box
+        sx={{
+          my: 5,
+          mx: "auto",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Box width={150} height={50}>
+          <CustomImage
+            src={siteBrands[serviceId as string].info.logo}
+            alt={siteBrands[serviceId as string].label}
+          />
+        </Box>
       </Box>
 
       {/* Background Image with Overlapping Section */}
       <Box sx={{ position: "relative" }}>
-        <Image
-          src="/images/faber-banner.jpg" // Replace with actual image path
-          alt="Faber Kitchen Chimney"
-          width={1920}
-          height={600}
-          style={{ width: "100%", height: "auto" }}
-        />
+        <Box height={300} width="100%">
+          <CustomImage
+            src={siteBrands[serviceId as string].info.heroImageSrc}
+            alt={serviceId as string}
+          />
+        </Box>
 
         {/* Overlapping Section */}
         <Box
           sx={{
-            backgroundColor: "#3E565E",
+            backgroundColor: siteBrands[serviceId as string].info.panelBgColor,
             color: "white",
             py: 6,
             px: 3,
@@ -38,10 +48,11 @@ const Section1 = () => {
           }}
         >
           <Typography variant="h4" fontWeight={600}>
-            Faber Repair Centre
+            {siteBrands[serviceId as string].label} Repair Centre
           </Typography>
           <Typography variant="body1" sx={{ mt: 1, mb: 3 }}>
-            Expert repair for Faber kitchen appliances.
+            Expert repair for {siteBrands[serviceId as string].label} kitchen
+            appliances.
           </Typography>
 
           {/* Call to Action Button */}
@@ -56,7 +67,7 @@ const Section1 = () => {
               "&:hover": { backgroundColor: "#333" },
             }}
           >
-            Call Us Now - 18001235871
+            Call Us Now - {siteMetaData.GlobalLayout.contactBannerText}
           </Button>
         </Box>
       </Box>

@@ -1,4 +1,5 @@
 import { Box, Button, Container, Grid2, Typography } from "@mui/material";
+import { siteMetaData } from "@sid/src/utils/metadata";
 import Image from "next/image";
 
 //
@@ -13,12 +14,10 @@ const Section2 = () => {
           sx={{ textAlign: { xs: "center", md: "left" } }}
         >
           <Typography variant="h3" fontWeight="bold" gutterBottom>
-            Expert Gas Stove Repair Services
+            {siteMetaData.HomePage.section1.title}
           </Typography>
           <Typography variant="body1" color="text.secondary" gutterBottom>
-            We specialize in modern gas stove repairs in Bangalore and
-            Hyderabad, ensuring quality service for brands like Elica, Faber,
-            Glen, and more.
+            {siteMetaData.HomePage.section1.content}
           </Typography>
           <Button
             variant="contained"
@@ -33,7 +32,7 @@ const Section2 = () => {
               mx: { xs: "auto", md: "0" },
             }}
           >
-            Call Now - 18001235871
+            Call Now - {siteMetaData.GlobalLayout.contactBannerText}
           </Button>
         </Grid2>
 
@@ -49,7 +48,7 @@ const Section2 = () => {
             }}
           >
             <Image
-              src="https://images.unsplash.com/photo-1590720563742-f88d6bff91ce?auto=format&fit=crop&w=319&h=321" // Replace with actual image path
+              src={siteMetaData.HomePage.section1.heroImageSrc} // Replace with actual image path
               alt="Gas Stove Burner"
               width={600} // Adjust as needed
               height={400} // Adjust as needed
@@ -67,10 +66,10 @@ const Section2 = () => {
               }}
             >
               <Typography variant="body1" fontWeight="bold">
-                “ Highly professional and reliable service. ”
+                {siteMetaData.HomePage.section1.heroImageTitle}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Ravi Kumar
+                {siteMetaData.HomePage.section1.heroImageSubtitle}
               </Typography>
             </Box>
           </Box>

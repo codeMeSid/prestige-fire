@@ -1,6 +1,6 @@
-import React from "react";
 import { Avatar, Box, Grid2, Rating, Typography } from "@mui/material";
-import Image from "next/image";
+import { siteMetaData } from "@sid/src/utils/metadata";
+import CustomImage from "../../CustomImage";
 
 const Section1 = () => {
   return (
@@ -8,7 +8,6 @@ const Section1 = () => {
       <Grid2
         container
         sx={{
-          maxWidth: 600,
           borderRadius: 2,
           overflow: "hidden",
           boxShadow: 3,
@@ -19,17 +18,14 @@ const Section1 = () => {
         <Grid2 size={{ xs: 12, md: 6 }}>
           <Box
             sx={{
-              position: "relative",
-              width: { xs: "100%", md: 612 },
+              width: "100%",
               height: { xs: 320, md: 464 }, // Adjust height based on screen size
             }}
           >
-            <Image
-              src="/testimonial-image.jpg" // Replace with actual image path
+            <CustomImage
+              objectFit="cover"
+              src={siteMetaData.ReviewsPage.imageSrc}
               alt="Testimonial"
-              fill
-              style={{ objectFit: "cover" }}
-              priority
             />
           </Box>
         </Grid2>
@@ -47,22 +43,26 @@ const Section1 = () => {
           }}
         >
           {/* MUI Rating Component */}
-          <Rating value={5} readOnly precision={0.5} sx={{ color: "white" }} />
+          <Rating
+            value={siteMetaData.ReviewsPage.ratings}
+            readOnly
+            precision={0.5}
+            sx={{ color: "white" }}
+          />
 
           {/* Review Text */}
           <Typography variant="body1" color="white" mt={1}>
-            Excellent service! My gas stove was repaired quickly and
-            efficiently. Highly recommend their expertise.
+            {siteMetaData.ReviewsPage.review}
           </Typography>
 
           {/* Reviewer Details */}
           <Box mt={2}>
             <Avatar
-              src="/ravi-kumar-avatar.jpg" // Replace with actual avatar image
+              src={siteMetaData.ReviewsPage.reviewerImageSrc} // Replace with actual avatar image
               sx={{ width: 50, height: 50, mx: "auto" }}
             />
             <Typography variant="body2" color="white" mt={1}>
-              Ravi Kumar
+              {siteMetaData.ReviewsPage.reviewerName}
             </Typography>
           </Box>
         </Grid2>

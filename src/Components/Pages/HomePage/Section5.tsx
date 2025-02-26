@@ -1,45 +1,37 @@
 import { Box, Container, Grid2, Typography } from "@mui/material";
-import Image from "next/image";
-import React from "react";
-
-const images = [
-  "/gas1.jpg",
-  "/gas2.jpg",
-  "/gas3.jpg",
-  "/gas4.jpg",
-  "/gas5.jpg",
-  "/gas6.jpg",
-];
+import { siteMetaData } from "@sid/src/utils/metadata";
+import CustomImage from "../../CustomImage";
 
 const Section5 = () => {
   return (
     <Container maxWidth="lg">
       <Box textAlign="center" my={4}>
         <Typography variant="h4" fontWeight={600} gutterBottom>
-          Gas Stove
+          {siteMetaData.HomePage.section4.title}
         </Typography>
         <Typography variant="subtitle1" color="textSecondary">
-          Expert repairs for Elica, Faber, Glen, and more brands.
+          {siteMetaData.HomePage.section4.content}
         </Typography>
       </Box>
 
       <Grid2 container spacing={2} justifyContent="center" mb={4}>
-        {images.map((src, index) => (
-          <Grid2 key={index} size={{ xs: 12, sm: 6, md: 4 }}>
+        {siteMetaData.HomePage.section4.imageList.map((src, index) => (
+          <Grid2
+            key={index}
+            display="flex"
+            justifyContent="center"
+            size={{ xs: 12, sm: 6, md: 4 }}
+          >
             <Box
+              width={400}
+              height={400}
               sx={{
                 overflow: "hidden",
                 borderRadius: 2,
                 boxShadow: 3,
               }}
             >
-              <Image
-                src={src}
-                alt={`Gas stove ${index + 1}`}
-                width={400}
-                height={400}
-                style={{ width: "100%", height: "auto" }}
-              />
+              <CustomImage src={src} alt={`Gas stove ${index + 1}`} />
             </Box>
           </Grid2>
         ))}

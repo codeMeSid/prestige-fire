@@ -6,8 +6,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import Image from "next/image";
-import React from "react";
+import { siteMetaData } from "@sid/src/utils/metadata";
 
 const Section1 = () => {
   return (
@@ -19,11 +18,10 @@ const Section1 = () => {
           textAlign={{ xs: "center", md: "left" }}
         >
           <Typography variant="h4" fontWeight="bold" gutterBottom>
-            Contact Us
+            {siteMetaData.ContactPage.title}
           </Typography>
           <Typography variant="body1" color="textSecondary">
-            Get in touch for gas stove repair services in Bangalore and
-            Hyderabad. We're here to help!
+            {siteMetaData.ContactPage.content}
           </Typography>
         </Grid2>
 
@@ -77,7 +75,7 @@ const Section1 = () => {
         </Grid2>
 
         {/* Image Section */}
-        <Grid2 size={{ sm: 10, md: 8 }}>
+        {/* <Grid2 size={{ sm: 10, md: 8 }}>
           <Box borderRadius={3} overflow="hidden">
             <Image
               src="/contact-image.jpg" // Replace with actual image path
@@ -87,7 +85,7 @@ const Section1 = () => {
               style={{ borderRadius: "12px", width: "100%", height: "auto" }}
             />
           </Box>
-        </Grid2>
+        </Grid2> */}
       </Grid2>
     </Container>
   );

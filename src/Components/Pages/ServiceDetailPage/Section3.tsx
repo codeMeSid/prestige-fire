@@ -1,3 +1,4 @@
+"use client";
 import {
   Box,
   Button,
@@ -6,9 +7,12 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { siteBrands, siteMetaData } from "@sid/src/utils/metadata";
+import { useParams } from "next/navigation";
 import React from "react";
 
 const Section3 = () => {
+  const { serviceId } = useParams();
   return (
     <Box sx={{ backgroundColor: "#F9FAFB", py: 6, px: 3 }}>
       <Container maxWidth="lg">
@@ -16,18 +20,19 @@ const Section3 = () => {
           {/* Left Section - Contact Info */}
           <Grid2 size={{ xs: 12, md: 6 }}>
             <Typography variant="h4" fontWeight={600}>
-              Faber Kitchen Repair Services
+              {siteBrands[serviceId as string].label} Kitchen Repair Services
             </Typography>
             <Typography variant="body1" sx={{ mt: 1, mb: 3 }}>
-              Contact our Faber kitchen repair service center at{" "}
-              <strong>18001235871</strong> for assistance with your kitchen
-              appliances. We’re here to help you!
+              Contact our {siteBrands[serviceId as string].label} kitchen repair
+              service center at{" "}
+              <strong>{siteMetaData.GlobalLayout.contactBannerText}</strong> for
+              assistance with your kitchen appliances. We’re here to help you!
             </Typography>
             <Typography variant="h6" fontWeight={600}>
               Call Us
             </Typography>
             <Typography variant="body1" sx={{ fontWeight: 600, color: "#333" }}>
-              18001235871
+              {siteMetaData.GlobalLayout.contactBannerText}
             </Typography>
           </Grid2>
 

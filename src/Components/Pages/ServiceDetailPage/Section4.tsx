@@ -1,16 +1,12 @@
+"use client";
 import { Box, Container, Grid2, Typography } from "@mui/material";
+import { siteBrands } from "@sid/src/utils/metadata";
+import { useParams } from "next/navigation";
 import React from "react";
-
-const galleryImages = [
-  "/images/kitchen1.jpg",
-  "/images/kitchen2.jpg",
-  "/images/kitchen3.jpg",
-  "/images/kitchen4.jpg",
-  "/images/kitchen5.jpg",
-  "/images/kitchen6.jpg",
-];
+import CustomImage from "../../CustomImage";
 
 const Section4 = () => {
+  const { serviceId } = useParams();
   return (
     <Box sx={{ backgroundColor: "#3D5654", py: 6, px: { xs: 2, md: 6 } }}>
       {/* Title Section */}
@@ -28,37 +24,35 @@ const Section4 = () => {
         color="white"
         sx={{ mb: 4 }}
       >
-        Explore our Faber kitchen appliance repair service images here.
+        Explore our {siteBrands[serviceId as string].label} kitchen appliance
+        repair service images here.
       </Typography>
 
       {/* Responsive Image Grid */}
       <Container maxWidth="lg">
         <Grid2 container spacing={2} justifyContent="center">
-          {galleryImages.map((image, index) => (
-            <Grid2
-              key={index}
-              size={{
-                xs: 12, // Full width on small screens
-                md: 6, // 2 columns on tablets
-              }}
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              <Box
-                component="img"
-                src={image}
-                alt={`Gallery Image ${index + 1}`}
+          {siteBrands[serviceId as string].info.galleryImageSrcs.map(
+            (image, index) => (
+              <Grid2
+                key={index}
+                size={{ xs: 12, md: 6 }}
                 sx={{
-                  width: "100%",
-                  borderRadius: 3,
-                  objectFit: "cover",
-                  boxShadow: "0px 4px 10px rgba(0,0,0,0.2)",
+                  display: "flex",
+                  justifyContent: "center",
                 }}
-              />
-            </Grid2>
-          ))}
+              >
+                <Box
+                  height={400}
+                  width="100%"
+                  borderRadius={4}
+                  overflow="hidden"
+                  boxShadow="0px 4px 10px rgba(0,0,0,0.2)"
+                >
+                  <CustomImage src={image} alt={`Gallery Image ${index + 1}`} />
+                </Box>
+              </Grid2>
+            )
+          )}
         </Grid2>
       </Container>
     </Box>

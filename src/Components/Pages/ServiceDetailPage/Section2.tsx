@@ -1,17 +1,25 @@
+"use client";
 import { Box, Button, Container, Grid2, Typography } from "@mui/material";
+import { siteBrands } from "@sid/src/utils/metadata";
 import Image from "next/image";
+import { useParams } from "next/navigation";
 import React from "react";
 
 const Section2 = () => {
+  const { serviceId } = useParams();
   return (
     <Box sx={{ backgroundColor: "#E6F4F9", py: 6, px: 3 }}>
       {/* Heading & Button */}
       <Box textAlign="center" mb={4}>
         <Typography variant="h4" fontWeight={600}>
-          Faber Repair Services
+          {siteBrands[serviceId as string].label} Repair Services
         </Typography>
         <Typography variant="body1" sx={{ my: 1 }}>
-          Contact us for <strong>Faber Customer Support</strong> Near you.
+          Contact us for{" "}
+          <strong>
+            {siteBrands[serviceId as string].label} Customer Support
+          </strong>{" "}
+          Near you.
         </Typography>
         <Button
           variant="contained"
@@ -35,7 +43,7 @@ const Section2 = () => {
           <Grid2 size={{ xs: 12, md: 6 }}>
             <Box sx={{ display: "flex", justifyContent: "center" }}>
               <Image
-                src="/images/faber-repair-banner.jpg" // Replace with actual path
+                src={siteBrands[serviceId as string].info.heroImageSrc2} // Replace with actual path
                 alt="Faber Kitchen Chimney"
                 width={600}
                 height={400}
@@ -47,29 +55,20 @@ const Section2 = () => {
           {/* Right - Repair Services List */}
           <Grid2 size={{ xs: 12, md: 6 }}>
             <Box>
-              <Typography variant="h6" fontWeight={600}>
-                Cooktop Repair
-              </Typography>
-              <Typography variant="body2" sx={{ mb: 2 }}>
-                Specialized repair services for Faber cooktops. We ensure your
-                appliance works perfectly.
-              </Typography>
-
-              <Typography variant="h6" fontWeight={600}>
-                Gas Stove Repair
-              </Typography>
-              <Typography variant="body2" sx={{ mb: 2 }}>
-                Professional repair for Faber gas stoves. Quick and reliable
-                service guaranteed.
-              </Typography>
-
-              <Typography variant="h6" fontWeight={600}>
-                Hob Repair Services
-              </Typography>
-              <Typography variant="body2">
-                Efficient repairs for Faber kitchen hobs. Contact us for fast
-                solutions.
-              </Typography>
+              {siteBrands[serviceId as string].info.contents.map(
+                (content, contentIndex) => {
+                  return (
+                    <React.Fragment key={contentIndex}>
+                      <Typography variant="h6" fontWeight={600}>
+                        {content.title}
+                      </Typography>
+                      <Typography variant="body2" sx={{ mb: 2 }}>
+                        {content.content}
+                      </Typography>
+                    </React.Fragment>
+                  );
+                }
+              )}
             </Box>
           </Grid2>
         </Grid2>

@@ -1,13 +1,10 @@
 import { Box, Container, Typography } from "@mui/material";
-import {
-  SITE_CONTACT_BG_COLOR,
-  SITE_CONTACT_NUMBER,
-  SITE_LOGO_SRC,
-} from "@sid/src/utils/info";
-import React, { PropsWithChildren } from "react";
+import { siteMetaData } from "@sid/src/utils/metadata";
+import { PropsWithChildren } from "react";
 import CustomImage from "../CustomImage";
-import NavLayout from "./NavLayout";
 import FooterLayout from "./FooterLayout";
+import NavLayout from "./NavLayout";
+import ResponsiveNavLayout from "./ResponsiveNavLayout";
 
 const AppLayout = (props: PropsWithChildren) => {
   return (
@@ -17,23 +14,33 @@ const AppLayout = (props: PropsWithChildren) => {
         sx={{
           color: "white",
           textAlign: "center",
-          background: SITE_CONTACT_BG_COLOR,
+          background: siteMetaData.GlobalLayout.contactBannerBgColor,
         }}
       >
         <Typography sx={{ fontSize: 16, fontWeight: 500 }}>
-          CALL US NOW - {SITE_CONTACT_NUMBER}
+          CALL US NOW - {siteMetaData.GlobalLayout.contactBannerText}
         </Typography>
       </Box>
       <Box sx={{ background: "#ffffff", padding: 1 }}>
-        <Container disableGutters maxWidth="lg" sx={{ display: "flex" }}>
+        <Container
+          disableGutters
+          maxWidth="lg"
+          sx={{ display: "flex", alignItems: "center" }}
+        >
           <Box
+            component="a"
+            href="/"
             height={{ xs: 68, sm: 68, md: 68, lg: 98, xl: 98 }}
             width={{ xs: 89, sm: 89, md: 89, lg: 116, xl: 116 }}
           >
-            <CustomImage src={SITE_LOGO_SRC} alt="site logo" />
+            <CustomImage
+              src={siteMetaData.GlobalLayout.siteLogoSrc}
+              alt="site logo"
+            />
           </Box>
           <Box sx={{ marginLeft: "auto" }}>
             <NavLayout />
+            <ResponsiveNavLayout />
           </Box>
         </Container>
       </Box>
