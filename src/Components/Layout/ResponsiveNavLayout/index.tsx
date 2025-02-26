@@ -11,14 +11,19 @@ import {
   ListItem,
 } from "@mui/material";
 import { siteMetaData } from "@sid/src/utils/metadata";
-import { useState } from "react";
-import NavItem from "../NavLayout/NavItem";
+import { useEffect, useState } from "react";
+import ResponsiveNavItem from "./ResponsiveNavItem";
+import { usePathname } from "next/navigation";
 
 const ResponsiveNavLayout = () => {
+  const pathName = usePathname();
   const [open, setOpen] = useState(false);
   const toggleDrawer = (state: boolean) => () => {
     setOpen(state);
   };
+  useEffect(() => {
+    if (open) setOpen(false);
+  }, [pathName]);
   return (
     <Box sx={{ display: { xs: "flex", md: "none" } }}>
       <IconButton onClick={toggleDrawer(true)}>
@@ -39,8 +44,8 @@ const ResponsiveNavLayout = () => {
           <List sx={{ marginTop: 5 }}>
             {siteMetaData.SiteNav.map((i) => {
               return (
-                <ListItem key={i.href} onClick={toggleDrawer(false)}>
-                  <NavItem
+                <ListItem key={i.href}>
+                  <ResponsiveNavItem
                     href={i.href}
                     label={i.label}
                     subMenuItems={i.subnav}

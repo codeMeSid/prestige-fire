@@ -31,7 +31,12 @@ const Section3 = () => {
             <Typography variant="h6" fontWeight={600}>
               Call Us
             </Typography>
-            <Typography variant="body1" sx={{ fontWeight: 600, color: "#333" }}>
+            <Typography
+              component="a"
+              href={`tel:${siteMetaData.GlobalLayout.contactBannerText}`}
+              variant="body1"
+              sx={{ fontWeight: 600, color: "#333" }}
+            >
               {siteMetaData.GlobalLayout.contactBannerText}
             </Typography>
           </Grid2>

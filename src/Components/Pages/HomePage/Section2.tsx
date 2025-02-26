@@ -21,7 +21,9 @@ const Section2 = () => {
           </Typography>
           <Button
             variant="contained"
+            href={`tel:${siteMetaData.GlobalLayout.contactBannerText}`}
             sx={{
+              width: "max-content",
               backgroundColor: "#FFA500",
               color: "#000",
               mt: 2,

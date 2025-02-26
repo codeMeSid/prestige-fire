@@ -44,6 +44,7 @@ const Section1 = () => {
         </Typography>
         <Button
           variant="contained"
+          href={`tel:${siteMetaData.GlobalLayout.contactBannerText}`}
           sx={{
             mt: 3,
             backgroundColor: "orange",

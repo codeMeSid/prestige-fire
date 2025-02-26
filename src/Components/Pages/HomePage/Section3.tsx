@@ -17,7 +17,11 @@ const Section3 = () => {
         <Typography variant="h6" fontWeight="bold">
           {siteMetaData.HomePage.section2.title}
         </Typography>
-        <Typography variant="h6">
+        <Typography
+          component="a"
+          href={`tel:${siteMetaData.GlobalLayout.contactBannerText}`}
+          variant="h6"
+        >
           Call Now -{" "}
           <span style={{ color: "#f4c063" }}>
             {siteMetaData.GlobalLayout.contactBannerText}

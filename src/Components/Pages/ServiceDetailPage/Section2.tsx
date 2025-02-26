@@ -1,6 +1,6 @@
 "use client";
 import { Box, Button, Container, Grid2, Typography } from "@mui/material";
-import { siteBrands } from "@sid/src/utils/metadata";
+import { siteBrands, siteMetaData } from "@sid/src/utils/metadata";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import React from "react";
@@ -23,6 +23,7 @@ const Section2 = () => {
         </Typography>
         <Button
           variant="contained"
+          href={`tel:${siteMetaData.GlobalLayout.contactBannerText}`}
           sx={{
             backgroundColor: "#6CB6C8",
             color: "white",

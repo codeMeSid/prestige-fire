@@ -58,6 +58,7 @@ const Section1 = () => {
           {/* Call to Action Button */}
           <Button
             variant="contained"
+            href={`tel:${siteMetaData.GlobalLayout.contactBannerText}`}
             sx={{
               backgroundColor: "#1E1E1E",
               color: "white",

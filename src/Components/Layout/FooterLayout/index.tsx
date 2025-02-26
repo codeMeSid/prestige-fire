@@ -79,7 +79,11 @@ const FooterLayout = () => {
               {siteMetaData.GlobalLayout.footerSection2.content1}
             </a>
           </Typography>
-          <Typography variant="body2">
+          <Typography
+            component="a"
+            href={`tel:${siteMetaData.GlobalLayout.contactBannerText}`}
+            variant="body2"
+          >
             {siteMetaData.GlobalLayout.contactBannerText}
           </Typography>
         </Grid2>

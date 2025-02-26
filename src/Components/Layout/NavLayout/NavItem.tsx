@@ -21,6 +21,7 @@ const NavItem = (props: Props) => {
     <Box
       onMouseEnter={(e) => hasSubMenu && setAnchor(e.currentTarget)}
       onMouseLeave={() => hasSubMenu && setAnchor(null)}
+      onClick={() => router.push(href)}
       sx={{
         display: "flex",
         alignItems: "center",
@@ -53,6 +54,7 @@ const NavItem = (props: Props) => {
           <Menu
             anchorEl={anchor}
             open={!!anchor}
+            sx={{ top: 10 }}
             onClose={() => setAnchor(null)}
           >
             {subMenuItems.map((item) => (
