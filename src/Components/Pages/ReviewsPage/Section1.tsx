@@ -11,7 +11,7 @@ const Section1 = () => {
           borderRadius: 2,
           overflow: "hidden",
           boxShadow: 3,
-          bgcolor: "#A65B38",
+          bgcolor: "#D8925B",
         }}
       >
         {/* Image Section */}

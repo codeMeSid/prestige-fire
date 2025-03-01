@@ -463,11 +463,12 @@ export const siteBrands: Record<
 
 export const siteMetaData = {
   GlobalLayout: {
-    contactBannerBgColor: "#3226ed",
+    contactBannerBgColor: "#ED9D7A",
+    whatsappLink: "https://wa.me/919035695370",
     contactBannerText: 9035695370,
     siteLogoSrc:
       "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=232,fit=crop,q=95/A85Er13l6yT19Lvr/whatsapp-image-2025-01-09-at-11.21.04-pm-AQEDV2vegOHZ0O7v.jpeg",
-    footerBgColor: "#1E1A17",
+    footerBgColor: "#A89284",
     footerSection1: {
       title: "SUPPORT",
       content: "Expert gas stove repair in Bangalore and Hyderabad.",

@@ -1,6 +1,7 @@
 import { Box, Button, Container, Grid2, Typography } from "@mui/material";
 import { siteMetaData } from "@sid/src/utils/metadata";
 import Image from "next/image";
+import WhatsappButton from "../../WhatsappButton";
 
 //
 
@@ -19,23 +20,29 @@ const Section2 = () => {
           <Typography variant="body1" color="text.secondary" gutterBottom>
             {siteMetaData.HomePage.section1.content}
           </Typography>
-          <Button
-            variant="contained"
-            href={`tel:${siteMetaData.GlobalLayout.contactBannerText}`}
-            sx={{
-              width: "max-content",
-              backgroundColor: "#FFA500",
-              color: "#000",
-              mt: 2,
-              px: 4,
-              py: 1.5,
-              fontSize: "1rem",
-              display: "block",
-              mx: { xs: "auto", md: "0" },
-            }}
-          >
-            Call Now - {siteMetaData.GlobalLayout.contactBannerText}
-          </Button>
+          <Grid2 container sx={{ mt: 3 }} spacing={1}>
+            <Grid2
+              size={{ xs: 12, md: 6 }}
+              textAlign={{ xs: "center", md: "right" }}
+            >
+              <Button
+                variant="contained"
+                href={`tel:${siteMetaData.GlobalLayout.contactBannerText}`}
+                sx={{
+                  backgroundColor: "#ED9D7A",
+                  color: "black",
+                  fontWeight: "bold",
+                  borderRadius: "8px",
+                  height: 40,
+                }}
+              >
+                Call Now - {siteMetaData.GlobalLayout.contactBannerText}
+              </Button>
+            </Grid2>
+            <Grid2 size={{ xs: 12, md: 6 }}>
+              <WhatsappButton rounded size="small" />
+            </Grid2>
+          </Grid2>
         </Grid2>
 
         {/* Right Image & Testimonial */}
@@ -62,7 +69,7 @@ const Section2 = () => {
                 bottom: 0,
                 left: 0,
                 width: "100%",
-                backgroundColor: "#FFE8C5",
+                backgroundColor: "#ED9D7A",
                 p: 2,
                 textAlign: "left",
               }}

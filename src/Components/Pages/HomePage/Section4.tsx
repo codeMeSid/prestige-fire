@@ -12,7 +12,7 @@ import React from "react";
 
 const Section4 = () => {
   return (
-    <Box sx={{ backgroundColor: "#ffeacd" }}>
+    <Box sx={{  backgroundColor: "#ED9D7A", }}>
       <Container sx={{ py: 6 }}>
         <Typography variant="h4" fontWeight="bold" align="center">
           {siteMetaData.HomePage.section3.title}

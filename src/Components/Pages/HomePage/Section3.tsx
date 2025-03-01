@@ -13,7 +13,7 @@ import React from "react";
 const Section3 = () => {
   return (
     <Box sx={{ textAlign: "center", py: 4 }}>
-      <Box sx={{ backgroundColor: "#a56a1f", color: "#fff", py: 2 }}>
+      <Box sx={{ backgroundColor: "#ED9D7A", color: "#fff", py: 2 }}>
         <Typography variant="h6" fontWeight="bold">
           {siteMetaData.HomePage.section2.title}
         </Typography>
@@ -23,7 +23,7 @@ const Section3 = () => {
           variant="h6"
         >
           Call Now -{" "}
-          <span style={{ color: "#f4c063" }}>
+          <span style={{ color: "brown" }}>
             {siteMetaData.GlobalLayout.contactBannerText}
           </span>
         </Typography>

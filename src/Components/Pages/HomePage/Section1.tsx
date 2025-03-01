@@ -1,6 +1,7 @@
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Grid2, Typography } from "@mui/material";
 import { siteMetaData } from "@sid/src/utils/metadata";
 import React from "react";
+import WhatsappButton from "../../WhatsappButton";
 
 const Section1 = () => {
   return (
@@ -42,22 +43,29 @@ const Section1 = () => {
         <Typography variant="body1" sx={{ mt: 2 }}>
           {siteMetaData.HomePage.parallaxImageTitle2}
         </Typography>
-        <Button
-          variant="contained"
-          href={`tel:${siteMetaData.GlobalLayout.contactBannerText}`}
-          sx={{
-            mt: 3,
-            backgroundColor: "orange",
-            color: "black",
-            fontWeight: "bold",
-            px: 4,
-            py: 1.5,
-            borderRadius: "8px",
-            "&:hover": { backgroundColor: "#e69500" },
-          }}
-        >
-          Call Now - {siteMetaData.GlobalLayout.contactBannerText}
-        </Button>
+        <Grid2 container sx={{ mt: 3 }} spacing={1}>
+          <Grid2
+            size={{ xs: 12, md: 6 }}
+            textAlign={{ xs: "center", md: "right" }}
+          >
+            <Button
+              variant="contained"
+              href={`tel:${siteMetaData.GlobalLayout.contactBannerText}`}
+              sx={{
+                backgroundColor: "#ED9D7A",
+                color: "black",
+                fontWeight: "bold",
+                borderRadius: "8px",
+                height: 40,
+              }}
+            >
+              Call Now - {siteMetaData.GlobalLayout.contactBannerText}
+            </Button>
+          </Grid2>
+          <Grid2 size={{ xs: 12, md: 6 }}>
+            <WhatsappButton rounded size="small" />
+          </Grid2>
+        </Grid2>
       </Container>
 
       {/* Feature Boxes */}

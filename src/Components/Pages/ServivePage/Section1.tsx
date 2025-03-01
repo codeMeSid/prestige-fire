@@ -25,7 +25,7 @@ const services = [
 
 const Section1 = () => {
   return (
-    <Box sx={{ backgroundColor: "#fcefdc", py: 6, textAlign: "center" }}>
+    <Box sx={{ backgroundColor: "#E8D7C5", py: 6, textAlign: "center" }}>
       {/* Title */}
       <Typography
         variant="h4"
